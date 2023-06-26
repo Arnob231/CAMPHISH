@@ -19,10 +19,6 @@ if not exist php (
 		if %PROCESSOR_ARCHITECTURE%==AMD64 powershell -command "Invoke-WebRequest 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe' -Outfile 'cloudflare.exe'"
 		if %PROCESSOR_ARCHITECTURE%==x86 powershell -command "Invoke-WebRequest 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe' -Outfile 'cloudflare.exe'"
 		cls
-		echo DOWNLOAD COMPLETED! NOW YOU CAN DELETE THIS SCRIPT AND START CAMPHISH.
-		pause
-		exit
+		echo DOWNLOAD COMPLETED! 
+		(goto) 2>nul & del "%~f0" & cmd /c exit /b 10
 )
-echo All files are already installed. You can delete this script!.
-pause
-exit
